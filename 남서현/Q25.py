@@ -1,12 +1,11 @@
-def s(N,stage):
-    result = []
-    m=len(stage)
-    
-    if m != 0:
-        count = stage.count(stage)
-        result[stage] = count/m
-        m -= count
-    else:
-        result[stage] = 0
-
-    return sorted(result, key=lambda X : result[X], reverse=True)
+def solution(N, stages):
+    result = {}
+    denominator = len(stages)
+    for stage in range(1, N+1):
+        if denominator != 0:
+            count = stages.count(stage)
+            result[stage] = count / denominator
+            denominator -= count
+        else:
+            result[stage] = 0
+    return sorted(result, key=lambda x : result[x], reverse=True)
